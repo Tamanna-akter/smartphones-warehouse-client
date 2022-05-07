@@ -1,0 +1,74 @@
+[
+    {
+        "name": "Nokia 5.4",
+        "img": "https://cellphonewarehousebw.com/744-home_default/nokia-54.jpg",
+        "price": "100",
+        "quantity": "20",
+        "supplier": "Nokia",
+        "description": "Nokia 5.4 is officially announced on December 15, 2020. The display size is 6.39 inches with an IPS LCD capacitive touchscreen that provides a resolution of 720 x 1520 pixels."
+    },
+    {
+        "name": "POCO C3",
+        "img": "https://cellphonewarehousebw.com/751-home_default/poco-c3.jpg",
+        "price": "200",
+        "supplier": "MI",
+        "quantity": "15",
+        "description": "The phone comes with a 6.53-inch touchscreen display with a resolution of 720x1600 pixels and an aspect ratio of 20:9. Poco C3 is powered by an octa-core MediaTek Helio G35 processor. It comes with 3GB of RAM." 
+    },
+    {
+        "name": "SAMSUNG GALAXY A3 CORE",
+        "img": "https://cellphonewarehousebw.com/263-home_default/samsung-galaxy-a3-core-2020.jpg",
+        "price": "150",
+        "supplier": "SAMSUNG",
+        "quantity": "25",
+        "description": "The Samsung Galaxy A3 Core sports a 5.3-inch HD+ (720x1,480 pixels) TFT LCD display with 16:9 aspect ratio. The entry-level handset runs on Android Go edition. Under the hood, the Samsung Galaxy A3 Core comes equipped with an unnamed quad-core SoC that is clocked at 1.5GHz." 
+    },
+    {
+        "name": "APPLE IPHONE 12 SS 256GB",
+        "img": "https://cellphonewarehousebw.com/723-home_default/apple-iphone-12-128gb.jpg",
+        "price": "1000",
+        "supplier": "IPHONE",
+        "quantity": "10",
+        "description": "Ceramic Shield with four times better drop performance. And Night mode on every camera. iPhone 12 has it all — in two perfect sizes." 
+    },
+    {
+        "name": "APPLE IPAD PRO 11",
+        "img": "https://cellphonewarehousebw.com/377-home_default/apple-ipad-pro-11-2020-256gb.jpg",
+        "price": "2000",
+        "supplier": "APPLE",
+        "quantity": "23",
+        "description": "Apple iPad Pro (11-inch) 2020 Wi-Fi tablet was launched on 18th March 2020. The tablet comes with a 11.00-inch touchscreen display with a resolution of 1668x2388 pixels at a pixel density of 264 pixels per inch (ppi)." 
+    },
+    {
+        "name": "BLACKVIEW A80S",
+        "img": "https://cellphonewarehousebw.com/766-home_default/blackview-a80s.jpg",
+        "price": "700",
+        "supplier": "BLACKVIEW",
+        "quantity": "10",
+        "description": "Blackview A80s has a 6.22 inchedisplay, with a processor speed of 1.3 Quad-core GHz Cortex-A53). The Operating System is Android 10. It has a RAM size of 4 GB, a ROM of 64 GB." 
+    },
+    {
+        "name": "POCO X3",
+        "img": "https://cellphonewarehousebw.com/748-home_default/poco-x3.jpg",
+        "price": "300",
+        "supplier": "MI",
+        "quantity": "20",
+        "description": "The POCO X3 and POCO X3 NFC are Android-based smartphones developed by Xiaomi, announced on 7 and 22 September 2020. The phone has a FHD+ IPS LCD 6.67 display, a 64 MP wide, 13 MP ultra-wide, 2 MP macro, and 2 MP depth camera, a 5160 mAh battery, 8gb ram and a side-mounted fingerprint sensor." 
+    },
+    {
+        "name": "SAMSUNG GALAXY A12",
+        "img": "https://cellphonewarehousebw.com/673-home_default/samsung-galaxy-a12.jpg",
+        "price": "500",
+        "supplier": "SAMSUNG",
+        "quantity": "23",
+        "description": "Samsung Galaxy A12 is powered by a 1.8GHz octa-core MediaTek Helio P35 (MT6765) processor that features 4 cores clocked at 1.8GHz and 4 cores clocked at 23GHz. It comes with 4GB of RAM." 
+    },
+    {
+        "name": "LENOVO TAB M8",
+        "img": "https://cellphonewarehousebw.com/744-home_default/nokia-54.jpg",
+        "price": "1000",
+        "supplier": "LENOVO",
+        "quantity": "10",
+        "description": "The tablet comes with a 8.00-inch touchscreen display with a resolution of 720x1280 pixels. Lenovo Tab M8 is powered by a 2GHz octa-core MediaTek Helio A22 processor." 
+    }
+]
