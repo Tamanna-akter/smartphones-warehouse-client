@@ -1,11 +1,15 @@
 import React from 'react';
 import { Button, Card } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import './InventoryItem.css';
 // import { Link } from 'react-router-dom';
 
 const InventoryItem = ({inventoryItem}) => {
 
-    const { name, img, description, price, quantity,supplier } = inventoryItem;
+    const {_id, name, img, description, price, quantity,supplier } = inventoryItem;
+
+    const navigate = useNavigate();
+    const handleUpdatePhone = (id) => navigate(`/phoneDetails/${id}`);
     return (
         <div className="col">
             <Card className="card">
@@ -20,7 +24,7 @@ const InventoryItem = ({inventoryItem}) => {
                     </Card.Text>
                 </Card.Body>
                 <Card.Footer className='mx-auto'>
-                    <Button variant="success">Manage Phone</Button>
+                    <Button variant="success" onClick={() =>  handleUpdatePhone(_id)}>Update Phone</Button>
                 </Card.Footer>
             </Card>
         </div>

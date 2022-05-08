@@ -1,23 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, {useState } from 'react';
+import useInventoryItems from '../Hooks/useInventoryItems';
 import InventoryItem from '../InventoryItem/InventoryItem';
 import Loading from '../Shared/Loading/Loading';
 
 const InventoryItems = () => {
 
-    const [inventoryItems, setInventoryItems] = useState([]);
+    const [inventoryItems, setInventoryItems] = useInventoryItems();
     const [loading, setLoading] = useState(false);
 
-    useEffect(() => {
-        setLoading(true);
-
-        fetch('http://localhost:5000/phone')
-            .then(res => res.json())
-            .then(data => {
-                setLoading(false);
-                setInventoryItems(data)
-            })
-
-    }, [])
     return (
         <div className="container my-3">
             <h1 className="text-center">Inventory Items</h1>
