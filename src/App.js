@@ -1,9 +1,12 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import AddItem from './Components/AddItem/AddItem';
 import Login from './Components/Authentication/Login/Login';
 import Register from './Components/Authentication/Register/Register'; import RequireAuth from './Components/Authentication/RequireAuth/RequireAuth';
 import Blogs from './Components/Blogs/Blogs';
 import Home from './Components/Home/Home';
+import ManagePhones from './Components/ManageItems/ManagePhones/ManagePhones';
+import MyItems from './Components/MyItems/MyItems';
 import NotFound from './Components/NotFound/NotFound';
  import PhoneDetails from './Components/PhoneDetails/PhoneDetails';
 import Menubar from './Components/Shared/Menubar/Menubar';
@@ -20,6 +23,9 @@ function App() {
         <Route path="*" element={<NotFound></NotFound>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
+        <Route path="/managePhones" element={<ManagePhones></ManagePhones>}></Route>
+        <Route path="/additem" element={<AddItem></AddItem>}></Route>
+        <Route path="/myItems" element={<MyItems></MyItems>}></Route>
 
         <Route path="/phoneDetails/:id" element={<RequireAuth>
         <PhoneDetails></PhoneDetails>
