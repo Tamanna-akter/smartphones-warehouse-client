@@ -7,6 +7,7 @@ import {
 import auth from "../../../firebase.init";
 import Loading from "../../Shared/Loading/Loading";
 import GoogleLogin from "../GoogleLogin/GoogleLogin";
+import './Register.css';
 
 
 const Register = () => {
@@ -43,7 +44,7 @@ const navigateLogin = () => {
     <div className="d-flex justify-content-center align-items-center height-control">
       <div className="container">
         <div className="row">
-          <div className=" col-sm-6 col-lg-4 mx-auto">
+          <div className=" col-sm-6 col-lg-4 mx-auto register mt-2">
             <div className="mb-3">
               <h2 className="text-primary text-center">Please Register</h2>
               <Form onSubmit={handleRegister}>
