@@ -9,7 +9,7 @@ const ManagePhones = () => {
     const handleDelete = (id) => {
         const deleteConfirm = window.confirm("Are you sure? you want to delete?");
         if (deleteConfirm) {
-          fetch(`http://localhost:5000/phones/${id}`, {
+          fetch(`https://thawing-reaches-79081.herokuapp.com/phones/${id}`, {
             method: "DELETE",
           })
             .then((res) => res.json())

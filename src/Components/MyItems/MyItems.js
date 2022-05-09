@@ -13,7 +13,7 @@ const MyItems = () => {
   useEffect(()=>{
     const getItem = async ()=>{
       const email= user.email;
-      const url = `http://localhost:5000/addItem?email=${email}`;
+      const url = `https://thawing-reaches-79081.herokuapp.com/addItem?email=${email}`;
       const { data } = await axios.get(url);
       setMyItem(data);
     };

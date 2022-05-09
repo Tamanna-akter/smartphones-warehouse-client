@@ -4,7 +4,7 @@ const usePhoneDetails = (id) => {
   const [phoneDetails, setPhoneDetails] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:5000/phoneDetails/${id}`)
+    fetch(`https://thawing-reaches-79081.herokuapp.com/phoneDetails/${id}`)
       .then((res) => res.json())
       .then((data) => setPhoneDetails(data));
   }, [id]);

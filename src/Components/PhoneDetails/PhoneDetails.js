@@ -17,7 +17,7 @@ const PhoneDetails = () => {
         const quantity = parseInt(phoneDetails.quantity) - 1;
         const newQuantity = { quantity };
     
-        fetch(`http://localhost:5000/phones/${id}`, {
+        fetch(`https://thawing-reaches-79081.herokuapp.com/phones/${id}`, {
           method: "PUT",
           headers: {
             "content-type": "application/json",
@@ -44,7 +44,7 @@ const PhoneDetails = () => {
     const quantity = parseInt(phoneDetails.quantity) + parseInt(restockQuantity);
     const newQuantity = { quantity };
     
-    fetch(`http://localhost:5000/phones/${id}`, {
+    fetch(`https://thawing-reaches-79081.herokuapp.com/phones/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

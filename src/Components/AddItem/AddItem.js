@@ -6,7 +6,7 @@ const AddItem = () => {
 
     const { register, handleSubmit, reset } = useForm();
     const onSubmit =  data => {
-        fetch('http://localhost:5000/phones', {
+        fetch('https://thawing-reaches-79081.herokuapp.com/phones', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
