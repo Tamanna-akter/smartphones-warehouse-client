@@ -1,43 +1,49 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
-import useInventoryItems from "../Hooks/useInventoryItems";
-// import ManageAllPhones from "../ManageItems/ManageAllPhones/ManageAllPhones";
 import ManageMyItem from "../ManageItems/ManageMyItem/ManageMyItem";
-// import useInventories from "../hooks/userInventories";
-// import Loading from "../Loading/Loading";
-// import AddItemLink from "../ManageInventroy/AddItemLink/AddItemLink";
-// import ManageInventory from "../ManageInventroy/ManageInventory/ManageInventory";
-// import ManageInventoryAll from "../ManageInventroy/ManageInventoryAll/ManageInventoryAll";
-// import ManageMyInventory from "../ManageInventroy/ManageMyInvetory/ManageMyInventory";
 
 const MyItems = () => {
-  const [inventoryItems, setInventoryItems] = useInventoryItems();
-  const [user, loading, error] = useAuthState(auth);
+  const [myItem, setMyItem] = useState([]);
+  const [user] = useAuthState(auth);
 
-  const handleDeleteItem = (id) => {
-    const deleteConfirm = window.confirm("Are you sure to delete?");
-    if (deleteConfirm) {
-      fetch(`http://localhost:5000/phones/${id}`, {
-        method: "DELETE",
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-          const remaining = inventoryItems.filter(
-            (item) => item._id !== id
+  useEffect(()=>{
+    const getItem = async ()=>{
+      const email= user.email;
+      const url = `http://localhost:5000/addItem?email=${email}`;
+      const { data } = await axios.get(url);
+      setMyItem(data);
+    };
+    getItem();
+  }, [user]);
+  console.log(user);
+    
+
+
+  // const handleDeleteItem = (id) => {
+  //   const deleteConfirm = window.confirm("Are you sure to delete?");
+  //   if (deleteConfirm) {
+  //     fetch(`http://localhost:5000/addphones/${id}`, {
+  //       method: "DELETE",
+  //     })
+  //       .then((res) => res.json())
+  //       .then((data) => {
+  //         console.log(data);
+  //         const remaining = inventoryItems.filter(
+  //           (item) => item._id !== id
            
-          );
-          setInventoryItems(remaining);
-          console.log(inventoryItems);
-        });
-    }
-  };
+  //         );
+  //         setInventoryItems(remaining);
+  //         console.log(inventoryItems);
+  //       });
+  //   }
+  // };
 
   return (
     <div>
-      <h4 className="text-center mt-5"> My Adding New Item [{user?.email}]</h4>
+      <h1>You total item : {myItem.length} </h1>
       <div className="mx-auto d-block px-5 mt-5">
         <Table responsive="lg sm">
           <thead>
@@ -47,23 +53,18 @@ const MyItems = () => {
               <th>Name</th>
               <th>Price$</th>
               <th>Quantity</th>
-              <th>Item Sold</th>
               <th>Supplier</th>
               <th>Delete Item</th>
             </tr>
           </thead>
           <tbody>
-            {inventoryItems.map((item) =>
-              item?.user === user?.email ? (
-                <ManageMyItem
-                  key={item._id}
-                  item={item}
-                  handleDeleteItem={handleDeleteItem}
-                ></ManageMyItem>
-              ) : (
-                ""
-              )
-            )}
+          {myItem.map((items) => (
+      
+          
+            <ManageMyItem key={items._id} items={items}></ManageMyItem>
+          
+        
+      ))}
           </tbody>
         </Table>
       </div>

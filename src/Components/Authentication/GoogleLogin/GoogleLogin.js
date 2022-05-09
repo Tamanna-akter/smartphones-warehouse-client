@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import Loading from '../../Shared/Loading/Loading';
 import google from './../../../images/google.png';
@@ -8,6 +8,8 @@ import google from './../../../images/google.png';
 const GoogleLogin = () => {
     const [signInWithGoogle, googleUser, loading, error] = useSignInWithGoogle(auth);
     const navigate = useNavigate();
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
 
     let errorMessage;
 
@@ -20,7 +22,7 @@ const GoogleLogin = () => {
     }
 
     if (googleUser) {
-        navigate('/home');
+        navigate(from, { replace: true });
     }
 
     return (

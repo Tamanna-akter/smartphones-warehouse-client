@@ -7,7 +7,7 @@ import { useForm } from 'react-hook-form';
 const AddItem = () => {
 
     const { register, handleSubmit, reset } = useForm();
-    const onSubmit = data => {
+    const onSubmit =  data => {
         fetch('http://localhost:5000/phones', {
             method: 'POST',
             headers: {

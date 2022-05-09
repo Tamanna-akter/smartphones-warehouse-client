@@ -9,6 +9,7 @@ import ManagePhones from './Components/ManageItems/ManagePhones/ManagePhones';
 import MyItems from './Components/MyItems/MyItems';
 import NotFound from './Components/NotFound/NotFound';
  import PhoneDetails from './Components/PhoneDetails/PhoneDetails';
+import Footer from './Components/Shared/Footer/Footer';
 import Menubar from './Components/Shared/Menubar/Menubar';
 
 
@@ -32,6 +33,7 @@ function App() {
         </RequireAuth>}></Route>
         
       </Routes>
+      <Footer></Footer>
      
     </div>
   );

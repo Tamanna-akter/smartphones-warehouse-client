@@ -1,9 +1,9 @@
 import React from 'react';
-import './Header.css';
-import banner from './../../images/banner2.jpg';
+import './Banner.css';
+import banner from './../../images/banner.jpg';
 import { Card } from 'react-bootstrap';
 
-const Header = () => {
+const Banner = () => {
     return (
         <div>
             <div className="banner" >
@@ -18,4 +18,4 @@ const Header = () => {
     );
 };
 
-export default Header;
+export default Banner;
