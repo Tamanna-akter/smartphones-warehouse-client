@@ -1,55 +1,76 @@
-import React from 'react';
+// import React, { useEffect, useState } from 'react';
 // import { useAuthState } from 'react-firebase-hooks/auth';
 // import { useForm } from 'react-hook-form';
+import { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import usePhoneDetails from '../Hooks/usePhoneDetails';
+ import usePhoneDetails from '../Hooks/usePhoneDetails';
 import ManageItemslink from '../ManageItems/ManageItemslink/ManageItemslink';
 import './PhoneDetails.css';
 
 const PhoneDetails = () => {
+
     const { id } = useParams();
     // const { user } = useAuthState();
-    const [phoneDetails]=usePhoneDetails(id);
+    const [phoneDetails,setPhoneDetails]=usePhoneDetails(id);
     const { name, quantity, description, price, supplier,img,
       } = phoneDetails;
 
+    //   const [phone, setPhone] = useState({});
+    //   useEffect(() => {
+    //     fetch(`http://localhost:5000/phones/${_id}`)
+    //       .then((res) => res.json())
+    //       .then((data) => setPhone(data));
+    //   }, [phone.quantity, _id]);
+    
+      const delivered = (e) => {
+    
+       
+        const quantity = parseInt(phoneDetails.quantity) - 1;
+        const newQuantity = { quantity };
+    
+        fetch(`http://localhost:5000/phones/${id}`, {
+          method: "PUT",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(newQuantity),
+        })
+           .then((res) => res.json())
+          .then((data) => {
+            setPhoneDetails(data);
+             
+          });
 
-    // const { register, handleSubmit, reset, formState: { errors } } = useForm();
+        window.location.reload();
+      };
 
-    // const [details, setDetails] = useState({});
-    // useEffect(() => {
-    // const url = `http://localhost:5000/phoneDetails/${id}`;
-    //     fetch(url)
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             setDetails(data);
-    //             reset(data)
+      const [restockQuantity, setRestockQuantity] = useState();
 
-    //         });
-    // }, [reset, id])
+     const handleChange = (e) => {
+     setRestockQuantity(e.target.value);
+  };
 
-    // const onSubmit = data => {
-    //     delete data._id;
-    //     //   console.log(data);
-
-    //     fetch('https://glacial-temple-54782.herokuapp.com/orders', {
-    //         method: 'POST',
-    //         headers: {
-    //             'content-type': 'application/json'
-    //         },
-    //         body: JSON.stringify(data)
-    //     })
-    //         .then(res => res.json())
-    //         .then(result => {
-    //             if (result.insertedId) {
-    //                 alert('Manage phone Successfully');
-    //                 reset();
-    //             }
-    //         })
-    // };
-
-
-    // const status = 'Pending';
+  const restock = (e) => {
+    e.preventDefault();
+    const quantity = parseInt(phoneDetails.quantity) + parseInt(restockQuantity);
+    const newQuantity = { quantity };
+    
+    fetch(`http://localhost:5000/phones/${id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newQuantity),
+    })
+    
+      .then((res) => res.json())
+      .then((data) => {
+        
+        setPhoneDetails(data);
+      });
+      e.target.reset();
+      window.location.reload();
+  };
 
     return (
         
@@ -71,7 +92,16 @@ const PhoneDetails = () => {
                     <h5 className="text-center my-2">Supplier:{supplier}</h5>
                      <p className="card-text">{description}</p>
                 </div>
-                 <button className="btn btn-danger">Delivered</button>
+                 <button  onClick={delivered} className="btn btn-danger mb-3">Delivered</button>
+                 <form action="" onSubmit={restock}>
+              <input
+                type="number"
+                placeholder="Type the quantity"
+                onBlur={handleChange}
+                required
+              />
+              <input type="submit" value="restock" className="button" />
+            </form>
             </div>
              </div>
             </div>

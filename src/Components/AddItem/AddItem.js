@@ -8,7 +8,7 @@ const AddItem = () => {
 
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        fetch('http://localhost:5000/addPhones', {
+        fetch('http://localhost:5000/phones', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

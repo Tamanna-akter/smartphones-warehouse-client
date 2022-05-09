@@ -3,7 +3,8 @@ import { Table } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import useInventoryItems from "../Hooks/useInventoryItems";
-import ManageAllPhones from "../ManageItems/ManageAllPhones/ManageAllPhones";
+// import ManageAllPhones from "../ManageItems/ManageAllPhones/ManageAllPhones";
+import ManageMyItem from "../ManageItems/ManageMyItem/ManageMyItem";
 // import useInventories from "../hooks/userInventories";
 // import Loading from "../Loading/Loading";
 // import AddItemLink from "../ManageInventroy/AddItemLink/AddItemLink";
@@ -26,8 +27,10 @@ const MyItems = () => {
           console.log(data);
           const remaining = inventoryItems.filter(
             (item) => item._id !== id
+           
           );
           setInventoryItems(remaining);
+          console.log(inventoryItems);
         });
     }
   };
@@ -52,11 +55,11 @@ const MyItems = () => {
           <tbody>
             {inventoryItems.map((item) =>
               item?.user === user?.email ? (
-                <ManageAllPhones
+                <ManageMyItem
                   key={item._id}
                   item={item}
                   handleDeleteItem={handleDeleteItem}
-                ></ManageAllPhones>
+                ></ManageMyItem>
               ) : (
                 ""
               )

@@ -1,9 +1,17 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
 import { Container, Nav, Navbar} from 'react-bootstrap';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, NavLink } from 'react-router-dom';
+import auth from '../../../firebase.init';
 import './Menubar.css';
 
 const Menubar = () => {
+    const [user] = useAuthState(auth);
+
+    const handleSignOut = () => {
+        signOut(auth);
+    }
     return (
         <>
             <Navbar bg="info" variant="dark" sticky="top" collapseOnSelect expand="lg">
@@ -24,8 +32,12 @@ const Menubar = () => {
                          {/* <Navbar.Text>
                                 Hello! {user.displayName}
                             </Navbar.Text> */}
-                                                   
-                                <Nav.Link><NavLink className="custom-nav-text" to="/login">LogIn</NavLink></Nav.Link>
+                                    {
+                                user ?
+                                    <button className='btn btn-dark text-white fw-bold text-decoration-none' onClick={handleSignOut}>Log Out</button>
+                                    :
+                                    <Nav.Link><NavLink className="custom-nav-text" to="/login">LogIn</NavLink></Nav.Link>}                
+                               
                     
                     </Navbar.Collapse>
                 </Container>
