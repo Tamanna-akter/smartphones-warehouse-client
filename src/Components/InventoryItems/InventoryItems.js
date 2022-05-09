@@ -7,6 +7,7 @@ const InventoryItems = () => {
 
     const [inventoryItems, setInventoryItems] = useInventoryItems();
     const [loading, setLoading] = useState(false);
+    console.log(setInventoryItems)
 
     return (
         <div className="container my-3">

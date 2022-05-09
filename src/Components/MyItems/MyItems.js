@@ -21,26 +21,6 @@ const MyItems = () => {
   console.log(user);
     
 
-
-  // const handleDeleteItem = (id) => {
-  //   const deleteConfirm = window.confirm("Are you sure to delete?");
-  //   if (deleteConfirm) {
-  //     fetch(`http://localhost:5000/addphones/${id}`, {
-  //       method: "DELETE",
-  //     })
-  //       .then((res) => res.json())
-  //       .then((data) => {
-  //         console.log(data);
-  //         const remaining = inventoryItems.filter(
-  //           (item) => item._id !== id
-           
-  //         );
-  //         setInventoryItems(remaining);
-  //         console.log(inventoryItems);
-  //       });
-  //   }
-  // };
-
   return (
     <div>
       <h1>You total item : {myItem.length} </h1>
@@ -54,7 +34,7 @@ const MyItems = () => {
               <th>Price$</th>
               <th>Quantity</th>
               <th>Supplier</th>
-              <th>Delete Item</th>
+              <th>Delete</th>
             </tr>
           </thead>
           <tbody>

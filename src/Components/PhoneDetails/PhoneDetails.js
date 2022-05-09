@@ -1,6 +1,3 @@
-// import React, { useEffect, useState } from 'react';
-// import { useAuthState } from 'react-firebase-hooks/auth';
-// import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
  import usePhoneDetails from '../Hooks/usePhoneDetails';
@@ -10,18 +7,10 @@ import './PhoneDetails.css';
 const PhoneDetails = () => {
 
     const { id } = useParams();
-    // const { user } = useAuthState();
     const [phoneDetails,setPhoneDetails]=usePhoneDetails(id);
     const { name, quantity, description, price, supplier,img,
       } = phoneDetails;
 
-    //   const [phone, setPhone] = useState({});
-    //   useEffect(() => {
-    //     fetch(`http://localhost:5000/phones/${_id}`)
-    //       .then((res) => res.json())
-    //       .then((data) => setPhone(data));
-    //   }, [phone.quantity, _id]);
-    
       const delivered = (e) => {
     
        
@@ -46,7 +35,7 @@ const PhoneDetails = () => {
 
       const [restockQuantity, setRestockQuantity] = useState();
 
-     const handleChange = (e) => {
+     const handleRestock = (e) => {
      setRestockQuantity(e.target.value);
   };
 
@@ -78,9 +67,9 @@ const PhoneDetails = () => {
                 <h2 className="text-center my-2">{name}</h2>
     
             <div className="d-flex justify-content-center">
-                <div>
+               
                     <div className="card mb-2 singleCard" style={{ 'max-width': '500px' }}>
-                        <div className="row g-0">
+                 <div className="row g-0">
                     <div className="col-md-4">
                      <img src={img} className="img-fluid rounded-start" alt="..." />
                      </div>
@@ -96,19 +85,24 @@ const PhoneDetails = () => {
                  <form action="" onSubmit={restock}>
               <input
                 type="number"
-                placeholder="Type the quantity"
-                onBlur={handleChange}
+                placeholder="enter quantity"
+                onBlur={handleRestock}
                 required
               />
-              <input type="submit" value="restock" className="button" />
+              <br />
+              <input type="submit" value="Restock" className="btn-success mt-1" />
             </form>
+            <ManageItemslink></ManageItemslink>
             </div>
              </div>
+           
             </div>
+            
             </div>
+            
            </div>
-            <ManageItemslink></ManageItemslink>
-        </div>
+           
+     
     );
 };
 export default PhoneDetails;

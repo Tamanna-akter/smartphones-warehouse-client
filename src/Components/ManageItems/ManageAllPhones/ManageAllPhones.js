@@ -1,9 +1,9 @@
 import React from 'react';
 
 const ManageAllPhones = (props) => {
-    const { _id, img, name, price, quantity, itemSold, supplier } =
+    const { _id, img, name, price, quantity, supplier } =
     props.item;
-  const { handleDeleteItem } = props;
+  const { handleDelete} = props;
 
 
     return (
@@ -20,11 +20,10 @@ const ManageAllPhones = (props) => {
         <td>{name}</td>
         <td>{price}</td>
         <td>{quantity}</td>
-        <td>{itemSold}</td>
         <td>{supplier}</td>
         <td>
           <button
-            onClick={() => handleDeleteItem(_id)}
+            onClick={() => handleDelete(_id)}
             className="btn btn-secondary"
           >
             Delete

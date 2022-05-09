@@ -9,9 +9,9 @@ import './FeaturedManufactures.css';
 
 const FeaturedManufactures = () => {
     return (
-        <div className='container'>
+    <div className='container mb-5'>
             <h1 className='text-center'>Featured Manufactures</h1>
-            <div className="row row-cols-1 row-cols-md-3 g-4 mt-3">
+        <div className="row row-cols-1 row-cols-md-3 g-3 mt-3">
           <div className='brand'>
           <img src={brand1} alt="" />
           <h5 className='text-center'>Brand:MI</h5>
@@ -36,10 +36,8 @@ const FeaturedManufactures = () => {
           <img src={brand6} alt="" />
           <h5 className='text-center'>Brand:JBL</h5>
           </div>
-            </div>
-            
-            
-        </div>
+      </div>
+    </div>
     );
 };
 

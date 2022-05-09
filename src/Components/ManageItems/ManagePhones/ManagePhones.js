@@ -1,12 +1,13 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import useInventoryItems from '../../Hooks/useInventoryItems';
 import ManageAllPhones from '../ManageAllPhones/ManageAllPhones';
 
 const ManagePhones = () => {
     const [inventoryItems, setInventoryItems]=useInventoryItems();
-    const handleDeleteItem = (id) => {
-        const deleteConfirm = window.confirm("Are you want to delete?");
+    const handleDelete = (id) => {
+        const deleteConfirm = window.confirm("Are you sure? you want to delete?");
         if (deleteConfirm) {
           fetch(`http://localhost:5000/phones/${id}`, {
             method: "DELETE",
@@ -31,7 +32,7 @@ const ManagePhones = () => {
           Total Inventory : {inventoryItems.length}
         </h4>
         <div className="mx-auto d-block px-5 mt-5">
-          <Table responsive="lg sm">
+          <Table responsive>
             <thead>
               <tr>
                 <th>Id</th>
@@ -39,9 +40,8 @@ const ManagePhones = () => {
                 <th>Name</th>
                 <th>Price$</th>
                 <th>Quantity</th>
-                <th>Item Sold</th>
                 <th>Supplier Name</th>
-                <th>Delete Item</th>
+                <th>Delete</th>
               </tr>
             </thead>
             <tbody>
@@ -49,13 +49,15 @@ const ManagePhones = () => {
                 <ManageAllPhones
                   key={item._id}
                  item={item}
-                  handleDeleteItem={handleDeleteItem}
+                  handleDelete={handleDelete}
                 ></ManageAllPhones>
               ))}
             </tbody>
           </Table>
         </div>
-        {/* <AddItemLink></AddItemLink> */}
+           <Link className="text-decoration-none text-center d-block" to="/additem">
+            <button className=" my-5 btn btn-success fw-bold">Add New Item</button>
+            </Link>
       </div>
     );
 };
