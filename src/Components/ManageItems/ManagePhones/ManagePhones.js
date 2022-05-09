@@ -32,8 +32,8 @@ const ManagePhones = () => {
           Total Inventory : {inventoryItems.length}
         </h4>
         <div className="mx-auto d-block px-5 mt-5">
-          <Table responsive>
-            <thead>
+          <Table responsive className='border border-2'>
+            <thead className='bg-success'>
               <tr>
                 <th>Id</th>
                 <th>img</th>

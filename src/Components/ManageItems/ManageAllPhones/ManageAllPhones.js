@@ -24,7 +24,7 @@ const ManageAllPhones = (props) => {
         <td>
           <button
             onClick={() => handleDelete(_id)}
-            className="btn btn-secondary"
+            className="btn btn-danger"
           >
             Delete
           </button>

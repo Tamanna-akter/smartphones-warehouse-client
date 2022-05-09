@@ -1,8 +1,6 @@
 import React from 'react';
-// import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
-// import auth from '../../firebase.init';
-// import useInventoryItems from '../Hooks/useInventoryItems';
+
 
 const AddItem = () => {
 
@@ -25,7 +23,7 @@ const AddItem = () => {
     }
 
     return (
-        <div className="">
+        <div>
         <h3 className="text-center my-3">Add a new Inventory Item</h3>
 
         <div className="d-flex justify-content-center">

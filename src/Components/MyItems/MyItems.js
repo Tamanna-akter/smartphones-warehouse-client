@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { Link } from "react-router-dom";
 import auth from "../../firebase.init";
 import ManageMyItem from "../ManageItems/ManageMyItem/ManageMyItem";
 
@@ -23,10 +24,13 @@ const MyItems = () => {
 
   return (
     <div>
-      <h1>You total item : {myItem.length} </h1>
+      <h3 className="text-center"> Total item : {myItem.length} </h3>
+      <Link className="text-decoration-none text-center d-block" to="/additem">
+            <button className=" my-5 btn btn-success fw-bold">Add New Item</button>
+            </Link>
       <div className="mx-auto d-block px-5 mt-5">
-        <Table responsive="lg sm">
-          <thead>
+        <Table responsive >
+          <thead className='bg-success'>
             <tr>
               <th>Id</th>
               <th>img</th>
